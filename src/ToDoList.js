@@ -14,8 +14,7 @@ const ToDoList = ({toDoList, handleToggle, handleFilter}) => {
             })}
             <Button type={"danger"} style={{margin: '20px'}} onClick={handleFilter}>Clear Completed</Button>
             <Button type={"default"} style={{margin: '20px'}} onClick={handleFilter}>Clear Completed</Button>
-            <Button type={"primary"} style={{margin: '20px'}} onClick={handleFilter}>Clear Completed</Button>
-            <Link to={`/task/${1}`} key={1} > Link </Link>
+            <Link to={`/task/${1}`} key={1} > <Button type={"primary"} style={{margin: '20px'}}>Add New Task</Button> </Link>
         </div>
     );
 };
