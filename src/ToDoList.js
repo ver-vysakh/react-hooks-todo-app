@@ -4,17 +4,20 @@ import ToDo from './ToDo';
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 
-const ToDoList = ({toDoList, handleToggle, handleFilter}) => {
+const ToDoList = ({toDoList, handleToggle, handleFilter, deleteTask}) => {
     return (
         <div className={'list'}>
-            {toDoList.map(todo => {
+            {toDoList.map((todo, index) => {
                 return (
-                    <ToDo todo={todo} handleToggle={handleToggle} handleFilter={handleFilter}/>
+                    <React.Fragment key={index}>
+                        <ToDo uniqueKey={`todo-${index}`} todo={todo} handleToggle={handleToggle} handleFilter={handleFilter} deleteTask={deleteTask} />
+                    </React.Fragment>
                 )
             })}
-            <Button type={"danger"} style={{margin: '20px'}} onClick={handleFilter}>Clear Completed</Button>
-            <Button type={"default"} style={{margin: '20px'}} onClick={handleFilter}>Clear Completed</Button>
-            <Link to={`/task/${1}`} key={1} > <Button type={"primary"} style={{margin: '20px'}}>Add New Task</Button> </Link>
+            <div className="list-items">
+                <Button className="btn" type={"danger"} onClick={handleFilter}>Clear Completed</Button>
+                <Link to={`/task`} key={1} > <Button className="btn" type={"primary"}>Add New Task</Button> </Link>
+            </div>
         </div>
     );
 };

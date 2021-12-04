@@ -9,3 +9,30 @@
 .list{
   text-align: center;
 }
+
+.list-items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.actions{
+  display: inline-block;
+}
+.edit{
+  margin-right: 8px;
+}
+.delete{
+  cursor: pointer;
+}
+.btn{
+  margin: 10px 0;
+}
+
+@media only screen and (min-width: 992px){
+  .list-items{
+    max-width: 25%;
+  }
+}

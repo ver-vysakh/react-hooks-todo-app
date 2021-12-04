@@ -5,10 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'antd/dist/antd.css';
 
+import ToDoProvider from '../src/context/ToDoContext'
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ToDoProvider>
+        <App />
+  </ToDoProvider>,
   document.getElementById('root')
 );
 
