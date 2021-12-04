@@ -1,82 +1,44 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Modal } from 'antd';
+import { ExclamationCircleOutlined }  from '@ant-design/icons';
 
-//mock data
-import data from "./data.json";
+import { ToDoContext } from '../src/context/ToDoContext';
+
 //components
 import Header from "./Header";
 import ToDoList from "./ToDoList";
 import ToDoForm from "./ToDoForm";
 
 function App() {
-  
-  const [toDoList, setToDoList] = useState(data);
+  const { isModalVisible, handleOk, handleCancel, deleteTask, taskDeleteId } = useContext(ToDoContext);
 
-  const handleToggle = (id) => {
-    let mapped = toDoList.map((task) => {
-      return task.id === Number(id)
-        ? { ...task, complete: !task.complete }
-        : { ...task };
-    });
-    setToDoList(mapped);
-  };
+  const iconStyle = { fontSize: '16px', color: 'red', marginRight: '10px' };
 
-  const handleFilter = () => {
-    let filtered = toDoList.filter((task) => {
-      return !task.complete;
-    });
-    setToDoList(filtered);
-  };
-
-  const addTask = (userInput) => {
-    let copy = [...toDoList];
-    copy = [
-      ...copy,
-      { id: toDoList.length + 1, task: userInput, complete: false },
-    ];
-    setToDoList(copy);
-  };
-
-  const getTask = (id) => {
-    return toDoList.find(task => task.id === Number(id));
-  }
-
-  const updateTask = (id, userInput) => {
-      let mapped = toDoList.map((task) => {
-        return task.id === Number(id)
-          ? { ...task, task: userInput, complete: false }
-          : { ...task };
-      });
-      setToDoList(mapped);
-  };
-
-  const deleteTask = (id) => {
-    let remainingTask = toDoList.filter(task => task.id !== id);
-    debugger
-    setToDoList(remainingTask);
-  }
-
+  const onDelete = (id) => {
+    deleteTask(id);
+    handleOk()
+}
   return (
     <div className="App">
       <Router basename={process.env.PUBLIC_URL}>
         <Header />
         <Switch>
           <Route path="/task/:handle">
-            <ToDoForm addTask={addTask} getTask={getTask} updateTask={updateTask} />
+            <ToDoForm/>
           </Route>
           <Route path="/task">
-            <ToDoForm addTask={addTask} />
+            <ToDoForm/>
           </Route>
           <Route path="/">
-            <ToDoList
-              toDoList={toDoList}
-              handleToggle={handleToggle}
-              handleFilter={handleFilter}
-              deleteTask={deleteTask}
-            />
+            <ToDoList/>
           </Route>
         </Switch>
       </Router>
+      <Modal visible={isModalVisible} onOk={() => onDelete(taskDeleteId)} onCancel={handleCancel}>
+          <ExclamationCircleOutlined style={iconStyle}/>
+          <span>Do you want to delete these items?</span>
+      </Modal>
     </div>
   );
 }

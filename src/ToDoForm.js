@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Input, Button, message } from 'antd';
 import { useParams, useHistory } from 'react-router-dom'
 
 import './scss/form.css';
+import { ToDoContext } from '../src/context/ToDoContext';
 
-const ToDoForm = ({ addTask, getTask, updateTask }) => {
-
+const ToDoForm = () => {
+    const { addTask, getTask, updateTask } = useContext(ToDoContext);
     const [ userInput, setUserInput ] = useState('');
     const { handle } = useParams();
     let history = useHistory();

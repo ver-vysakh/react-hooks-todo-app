@@ -1,16 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import ToDo from './ToDo';
+import { ToDoContext } from '../src/context/ToDoContext';
 
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
 
-const ToDoList = ({toDoList, handleToggle, handleFilter, deleteTask}) => {
+const ToDoList = () => {
+    const { toDoList, handleToggle, handleFilter } = useContext(ToDoContext);
+
     return (
         <div className={'list'}>
             {toDoList.map((todo, index) => {
                 return (
                     <React.Fragment key={index}>
-                        <ToDo uniqueKey={`todo-${index}`} todo={todo} handleToggle={handleToggle} handleFilter={handleFilter} deleteTask={deleteTask} />
+                        <ToDo uniqueKey={`todo-${index}`} todo={todo} handleToggle={handleToggle} handleFilter={handleFilter} />
                     </React.Fragment>
                 )
             })}
