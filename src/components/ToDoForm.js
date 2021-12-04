@@ -2,8 +2,8 @@ import React, { useState, useEffect, useContext } from 'react';
 import { Input, Button, message } from 'antd';
 import { useParams, useHistory } from 'react-router-dom'
 
-import './scss/form.css';
-import { ToDoContext } from '../src/context/ToDoContext';
+import '../scss/form.scss';
+import { ToDoContext } from '../context/ToDoContext';
 
 const ToDoForm = () => {
     const { addTask, getTask, updateTask } = useContext(ToDoContext);

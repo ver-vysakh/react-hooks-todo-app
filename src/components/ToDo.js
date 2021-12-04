@@ -3,9 +3,9 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { EditOutlined, DeleteOutlined }  from '@ant-design/icons';
 
-import './scss/todo-list.css';
+import '../scss/todo-list.scss';
 
-import { ToDoContext } from '../src/context/ToDoContext';
+import { ToDoContext } from '../context/ToDoContext';
 
 const ToDo = ({todo, handleToggle, uniqueKey }) => {
     const { showModal } = useContext(ToDoContext);

@@ -1,9 +1,6 @@
 .todo {
-    cursor: pointer;
-    text-align: center;
-}
-  .strike {
-    text-decoration: line-through;
+  cursor: pointer;
+  text-align: center;
 }
 
 .list{
@@ -16,20 +13,19 @@
   align-items: center;
   max-width: 80%;
   margin: 0 auto;
-}
-
-.actions{
-  display: inline-block;
-}
-.edit{
-  margin-right: 8px;
-  cursor: pointer;
-}
-.delete{
-  cursor: pointer;
-}
-.btn{
-  margin: 10px 0;
+  .strike {
+    text-decoration: line-through;
+  }
+  .actions{
+    display: inline-block;
+    .edit{
+      margin-right: 8px;
+      cursor: pointer;
+    }
+    .delete{
+      cursor: pointer;
+    }
+  }
 }
 
 @media only screen and (min-width: 992px){
