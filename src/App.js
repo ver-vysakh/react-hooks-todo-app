@@ -35,9 +35,9 @@ function App() {
           </Route>
         </Switch>
       </Router>
-      <Modal visible={isModalVisible} onOk={() => onDelete(taskDeleteId)} onCancel={handleCancel}>
+    <Modal visible={isModalVisible} onOk={() => onDelete(taskDeleteId)} onCancel={handleCancel}>
           <ExclamationCircleOutlined style={iconStyle}/>
-          <span>Do you want to delete these items?</span>
+          <span>Do you want to delete the task?</span>
       </Modal>
     </div>
   );

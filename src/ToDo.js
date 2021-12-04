@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import { Link } from 'react-router-dom';
-import { EditOutlined, DeleteOutlined, ExclamationCircleOutlined }  from '@ant-design/icons';
+import { EditOutlined, DeleteOutlined }  from '@ant-design/icons';
 
 import './scss/todo-list.css';
 

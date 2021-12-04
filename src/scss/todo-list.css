@@ -23,6 +23,7 @@
 }
 .edit{
   margin-right: 8px;
+  cursor: pointer;
 }
 .delete{
   cursor: pointer;

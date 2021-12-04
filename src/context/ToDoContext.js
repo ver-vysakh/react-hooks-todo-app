@@ -8,6 +8,7 @@ const ToDoProvider = (props) => {
     const [isModalVisible, setIsModalVisible] = useState(false);
     const [taskDeleteId, setTaskDeleteId] = useState(null);
     const [toDoList, setToDoList] = useState(data);
+    const [currentIndex, setCurrentIndex] = useState(toDoList.length+1);
 
     const handleToggle = (id) => {
       let mapped = toDoList.map((task) => {
@@ -29,9 +30,10 @@ const ToDoProvider = (props) => {
       let copy = [...toDoList];
       copy = [
         ...copy,
-        { id: toDoList.length + 1, task: userInput, complete: false },
+        { id: currentIndex, task: userInput, complete: false },
       ];
       setToDoList(copy);
+      setCurrentIndex(currentIndex+1);
     };
   
     const getTask = (id) => {

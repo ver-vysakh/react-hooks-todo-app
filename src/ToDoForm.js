@@ -54,7 +54,7 @@ const ToDoForm = () => {
         <div className="form-wrap">
             <form onSubmit={handleSubmit}>
                 <Input value={userInput} type="text" onChange={handleChange} placeholder="Enter task..."/>
-                <Button type="default" className="btn" onClick={handleSubmit}>Submit</Button>
+                <Button type="primary" className="btn" onClick={handleSubmit}>Submit</Button>
             </form>
         </div>
 
