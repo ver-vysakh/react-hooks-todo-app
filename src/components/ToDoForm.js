@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { Input, Button, message } from 'antd';
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom'
 
 import '../scss/form.scss';
 import { ToDoContext } from '../context/ToDoContext';
@@ -54,7 +54,10 @@ const ToDoForm = () => {
         <div className="form-wrap">
             <form onSubmit={handleSubmit}>
                 <Input value={userInput} type="text" onChange={handleChange} placeholder="Enter task..."/>
-                <Button type="primary" className="btn" onClick={handleSubmit}>Submit</Button>
+                <div className="actions">
+                    <Link to={`/`} key={1} > <Button className="btn" type={"default"}>Back</Button> </Link>
+                    <Button type="primary" className="btn" onClick={handleSubmit}>Submit</Button>
+                </div>
             </form>
         </div>
 

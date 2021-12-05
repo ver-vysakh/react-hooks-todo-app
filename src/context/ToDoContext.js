@@ -51,7 +51,6 @@ const ToDoProvider = (props) => {
   
     const deleteTask = (id) => {
       let remainingTask = toDoList.filter(task => task.id !== id);
-      debugger
       setToDoList(remainingTask);
     }
 

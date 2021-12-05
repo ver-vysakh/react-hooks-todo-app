@@ -5,31 +5,48 @@
 
 .list{
   text-align: center;
-}
-
-.list-items{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 80%;
-  margin: 0 auto;
-  .strike {
-    text-decoration: line-through;
-  }
-  .actions{
-    display: inline-block;
-    .edit{
-      margin-right: 8px;
-      cursor: pointer;
+  padding: 0 0 30px;
+  .list-items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 80%;
+    margin: 0 auto;
+    font-size: 20px;
+  
+    .strike {
+      text-decoration: line-through;
+      color: lawngreen;
     }
-    .delete{
-      cursor: pointer;
+    .btn{
+      height: 48px;
+      font-size: 16px;
+    }
+    .actions{
+      display: inline-block;
+      .edit{
+        margin-right: 8px;
+        cursor: pointer;
+      }
+      .delete{
+        cursor: pointer;
+      }
+    }
+    &:last-child{
+      margin-top: 20px;
     }
   }
 }
 
 @media only screen and (min-width: 992px){
-  .list-items{
-    max-width: 25%;
+  .list{
+    .list-items{
+      max-width: 25%;
+      font-size: 16px;
+      .btn{
+        height: 32px;
+        font-size: 14px;
+      }
+    }
   }
 }
