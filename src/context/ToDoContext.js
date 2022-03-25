@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 //mock data
-import data from "../data.json";
+import data  from "../data";
 const ToDoContext = React.createContext();
 
 const ToDoProvider = (props) => {

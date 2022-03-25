@@ -23,7 +23,7 @@ function App() {
 }
   return (
     <div className="App">
-      <Router basename={process.env.PUBLIC_URL}>
+      <Router basename={'/'}>
         <Header />
         <Switch>
           <Route path="/task/:handle">
